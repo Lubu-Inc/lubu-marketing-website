@@ -175,6 +175,10 @@ export const TRUSTED_BY = {
   ],
 } as const
 
+// ─── Trusted By heading (section label) ───────────────────────────────────────
+
+export const TRUSTED_BY_HEADING = 'Trusted By' as const
+
 // ─── Waitlist ─────────────────────────────────────────────────────────────────
 
 export const WAITLIST = {

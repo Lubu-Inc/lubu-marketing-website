@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Marquee animation ──────────────────────────────────────────────────────
+   Speed is controlled by --marquee-duration on :root.
+   The track is 200% wide (two identical copies). Animating to -50% of
+   track width = one full copy width, producing a seamless infinite loop.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  --marquee-duration: 30s;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee var(--marquee-duration) linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 :root {
   --color-background: #232321;
   --color-background-deep: #0F0F0D;
